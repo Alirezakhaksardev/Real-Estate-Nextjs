@@ -9,9 +9,9 @@
       "@/providers/*": ["src/providers/*"],
 
       //components
-      "@/components/layout/*": ["src/components/layout/*"],
-      "@/components/models/*": ["src/components/models/*"],
-      "@/components/templates/*": ["src/components/templates/*"],
+      "@/layout/*": ["src/components/layout/*"],
+      "@/models/*": ["src/components/models/*"],
+      "@/templates/*": ["src/components/templates/*"],
       // end
 
       "@/api/*": ["src/app/api/*"],
