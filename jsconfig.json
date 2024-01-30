@@ -10,11 +10,11 @@
 
       //components
       "@/layout/*": ["src/components/layout/*"],
-      "@/models/*": ["src/components/models/*"],
       "@/templates/*": ["src/components/templates/*"],
       // end
-
+      
       "@/api/*": ["src/app/api/*"],
+      "@/models/*": ["src/models/*"],
       
 
     }
