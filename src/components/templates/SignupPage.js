@@ -6,6 +6,7 @@ import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ThreeDots } from "react-loader-spinner";
+import Loader from "@/modules/Loader";
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -66,16 +67,7 @@ function SignupPage() {
         <input type="password" id="repassword" name="repassword" value={formData.repassword} onChange={changHandler} />
 
         {!loading && <button type="submit">ثبت نام</button>}
-        <ThreeDots
-          height="40"
-          width="40"
-          radius="9"
-          color="#304ffe"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ margin: "auto" }}
-          wrapperClassName=""
-          visible={loading}
-        />
+        <Loader/>
       </form>
       <p>
         حساب کاربری دارید ؟<Link href="/signin">ورود</Link>

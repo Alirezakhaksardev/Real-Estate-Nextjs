@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ThreeDots } from "react-loader-spinner";
 import { signIn } from "next-auth/react";
+import Loader from "@/modules/Loader";
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -56,16 +57,7 @@ function SignupPage() {
         <input type="password" id="password" name="password" value={formData.password} onChange={changHandler} />
 
         {!loading && <button type="submit">ورود</button>}
-        <ThreeDots
-          height="40"
-          width="40"
-          radius="9"
-          color="#304ffe"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ margin: "auto" }}
-          wrapperClassName=""
-          visible={loading}
-        />
+        <Loader />
       </form>
       <p>
         حساب کاربری ندارید ؟<Link href="/signup">ثبت نام</Link>

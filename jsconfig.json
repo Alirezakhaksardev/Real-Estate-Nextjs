@@ -16,7 +16,8 @@
       
       "@/api/*": ["src/app/api/*"],
       "@/models/*": ["src/models/*"],
-      
+      "@/constants/*": ["src/constants/*"]
+
 
     }
   }
