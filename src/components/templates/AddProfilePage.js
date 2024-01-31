@@ -5,6 +5,7 @@ import styles from "@/templates/AddProfilePage.module.css";
 import TextInput from "@/modules/TextInput";
 import RadioList from "@/modules/RadioList";
 import TextList from "@/modules/TextList";
+import CustomDatePicker from "@/modules/CustomDatePicker";
 
 function AddProfilePage() {
   const [profileData, setProfileData] = useState({
@@ -19,9 +20,22 @@ function AddProfilePage() {
     rules: [],
     amenities: [],
   });
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(profileData);
+
+    const res = await fetch('/api/profile' , {
+      method : "POST",
+      body : JSON.stringify(profileData),
+      headers : {"Content-Type" : "application/json"}
+    })
+    
+    const data = await res.json();
+    if(data.error){
+      console.log(data)
+    }else{
+      console.log({"success":data})
+    }
+
   };
   return (
     <form onSubmit={submitHandler} className={styles.container}>
@@ -43,6 +57,11 @@ function AddProfilePage() {
 
       <TextList title="امکانات رفاهی" profileData={profileData} setProfileData={setProfileData} type={"amenities"} />
       <TextList title="قوانین" profileData={profileData} setProfileData={setProfileData} type={"rules"} />
+      <CustomDatePicker
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+
       <button className={styles.submit} type="submit"> ثبت آگهی</button>
     </form>
   );
