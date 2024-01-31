@@ -11,6 +11,7 @@
       //components
       "@/layout/*": ["src/components/layout/*"],
       "@/templates/*": ["src/components/templates/*"],
+      "@/modules/*": ["src/components/modules/*"],
       // end
       
       "@/api/*": ["src/app/api/*"],

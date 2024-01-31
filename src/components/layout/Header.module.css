@@ -7,7 +7,20 @@
   border-radius: 10px;
   background-color: #304ffe;
   color: #fff;
+  height: 60px;
 }
+
+.login .loadingBox{
+  display: flex;
+  align-items: center;
+  justify-content: end !important;
+  background-color: #fff;
+  color: #304ffe;
+  /* padding: 3px 7px; */
+  /* border-radius: 5px; */
+  transition: all ease-in 0.1s;
+}
+
 
 .header ul {
   list-style: none;
