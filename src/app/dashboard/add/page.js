@@ -1,7 +1,11 @@
-import AddProfilePage from "@/templates/AddProfilePage"
+import AddProfilePage from "@/templates/AddProfilePage";
 
 function page() {
-  return <AddProfilePage />;
+  return (
+    <>
+      <AddProfilePage />
+    </>
+  );
 }
 
 export default page;

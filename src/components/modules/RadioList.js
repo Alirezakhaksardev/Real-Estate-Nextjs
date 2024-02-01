@@ -11,7 +11,7 @@ function RadioList({ profileData, setProfileData }) {
       <p>دسته بندی</p>
       <div className={styles.main}>
         <div>
-          <lable htmlFor="villa">ویلا</lable>
+          <label htmlFor="villa">ویلا</label>
           <input
             type="radio"
             name="category"
@@ -22,18 +22,18 @@ function RadioList({ profileData, setProfileData }) {
           />
         </div>
         <div>
-          <lable htmlFor="apartement">آپارتمان</lable>
+          <label htmlFor="apartment">آپارتمان</label>
           <input
             type="radio"
             name="category"
-            value="apartement"
-            id="apartement"
-            checked={category === "apartement"}
+            value="apartment"
+            id="apartment"
+            checked={category === "apartment"}
             onChange={changehandler}
           />
         </div>
         <div>
-          <lable htmlFor="store">مغازه</lable>
+          <label htmlFor="store">مغازه</label>
           <input
             type="radio"
             name="category"
@@ -44,7 +44,7 @@ function RadioList({ profileData, setProfileData }) {
           />
         </div>
         <div>
-          <lable htmlFor="office">دفتر</lable>
+          <label htmlFor="office">دفتر</label>
           <input
             type="radio"
             name="category"

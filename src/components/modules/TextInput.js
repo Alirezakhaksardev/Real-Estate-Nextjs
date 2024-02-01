@@ -10,11 +10,12 @@ function TextInput({ title, name, profileData, setProfileData, textarea = false 
   return (
     <>
       <div className={styles.container}>
-        <p>{title}</p>
+        <label htmlFor={name}>{title}</label>
+        <br/>
         {textarea ? (
-          <textarea type="text" name={name} value={profileData[name]} onChange={changeHandler} />
+          <textarea type="text" id={name} name={name} value={profileData[name]} onChange={changeHandler} />
         ) : (
-          <input type="text" name={name} value={profileData[name]} onChange={changeHandler} />
+          <input type="text" id={name} name={name} value={profileData[name]} onChange={changeHandler} />
         )}
       </div>
     </>
