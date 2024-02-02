@@ -56,8 +56,8 @@ function SignupPage() {
         <label htmlFor="password">رمز عبور :</label>
         <input type="password" id="password" name="password" value={formData.password} onChange={changHandler} />
 
-        {!loading && <button type="submit">ورود</button>}
-        <Loader />
+        {!loading ? <button type="submit">ورود</button> : <Loader />}
+        
       </form>
       <p>
         حساب کاربری ندارید ؟<Link href="/signup">ثبت نام</Link>

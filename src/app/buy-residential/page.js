@@ -12,7 +12,6 @@ async function page({ searchParams }) {
   if (searchParams.category) {
     finalData = finalData.filter((i) => i.category === searchParams.category);
   }
-  console.log(finalData);
 
   return <BuyResidentialsPage data={finalData} />;
 }

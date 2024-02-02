@@ -66,8 +66,8 @@ function SignupPage() {
         <label htmlFor="repassword">تکرار پسورد :</label>
         <input type="password" id="repassword" name="repassword" value={formData.repassword} onChange={changHandler} />
 
-        {!loading && <button type="submit">ثبت نام</button>}
-        <Loader/>
+        {!loading ? <button type="submit">ثبت نام</button> : <Loader/>}
+        
       </form>
       <p>
         حساب کاربری دارید ؟<Link href="/signin">ورود</Link>
