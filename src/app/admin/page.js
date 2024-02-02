@@ -6,6 +6,11 @@ import User from "@/models/User";
 import DashboardSidebar from "@/layout/DashboardSidebar";
 import AdminPage from "@/templates/AdminPage";
 import Profile from "@/models/Profile";
+
+export const metadata = {
+  title: "پنل کاربری املاک | پروژه تمرینی",
+};
+
 async function Admin() {
   await connectDB();
   const session = await getServerSession(authOptions);
@@ -16,7 +21,7 @@ async function Admin() {
 
   if (user.role != "ADMIN") redirect("/dashboard");
 
-  const profiles = await Profile.find({published : false}).select("-userId");
+  const profiles = await Profile.find({ published: false }).select("-userId");
 
   return (
     <DashboardSidebar role={user.role} email={session?.user.email}>

@@ -1,23 +1,27 @@
-import DashboardSidebar from "@/layout/DashboardSidebar"
-import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
-import { redirect } from "next/navigation"
-import connectDB from "@/utils/connectDB"
-import User from "@/models/User"
+import DashboardSidebar from "@/layout/DashboardSidebar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import connectDB from "@/utils/connectDB";
+import User from "@/models/User";
+export const metadata = {
+  title: "پنل کاربری املاک | پروژه تمرینی",  
+};
 
-async function layout({children}) {
+async function layout({ children }) {
+  const session = await getServerSession(authOptions);
+  if (!session) return redirect("/signin");
 
-    const session = await getServerSession(authOptions)
-    if(!session) return redirect('/signin')
+  await connectDB();
+  const user = await User.findOne({ email: session.user.email });
 
-    await connectDB();
-    const user = await User.findOne({email : session.user.email});
+  if (!user) return <h3>مشکلی پیش آمده است</h3>;
 
-    if(!user) return <h3>مشکلی پیش آمده است</h3>
-
-    return (
-        <DashboardSidebar role={user.role} email={session?.user.email}>{children}</DashboardSidebar>
-    )
+  return (
+    <DashboardSidebar role={user.role} email={session?.user.email}>
+      {children}
+    </DashboardSidebar>
+  );
 }
 
-export default layout
+export default layout;
